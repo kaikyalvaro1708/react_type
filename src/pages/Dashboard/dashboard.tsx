@@ -1,9 +1,9 @@
-import { useEffect, useState, useMemo, useCallback, useRef } from 'react';
+import { useEffect, useState, useMemo, useCallback, useRef } from "react";
 
 export const Dashboard = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const inputPasswordRef = useRef<HTMLInputElement>(null)
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const inputPasswordRef = useRef<HTMLInputElement>(null);
 
   // useEffect(() => {
   //   console.log(email)
@@ -15,17 +15,16 @@ export const Dashboard = () => {
 
   const emailLength = useMemo(() => {
     return email.length * 1000;
-  }, [email.length])
-
+  }, [email.length]);
 
   const handleChange = useCallback(() => {
-    console.log(email)
-    console.log(password)
+    console.log(email);
+    console.log(password);
 
-    if(inputPasswordRef.current !== null){
-      inputPasswordRef.current.focus()
+    if (inputPasswordRef.current !== null) {
+      inputPasswordRef.current.focus();
     }
-  }, [email, password])
+  }, [email, password]);
 
   return (
     <div>
@@ -34,26 +33,23 @@ export const Dashboard = () => {
 
         <label>
           <span>Email</span>
-          <input 
-            value={email} 
-            onChange={e => setEmail(e.target.value)}
-          />
+          <input value={email} onChange={(e) => setEmail(e.target.value)} />
         </label>
 
         <label>
           <span>Senha</span>
-          <input 
-            type='password'
-            ref={inputPasswordRef} 
-            value={password} 
-            onChange={e => setPassword(e.target.value)}
+          <input
+            type="password"
+            ref={inputPasswordRef}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
           />
         </label>
 
-        <button type='button' onClick={handleChange}>
+        <button type="button" onClick={handleChange}>
           Entrar
         </button>
       </form>
     </div>
-  )
-}
+  );
+};
